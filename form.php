@@ -14,11 +14,11 @@
 <form action="" method="POST">
         <label>
             Имя:<br />
-            <input name="name"  value=" " /> />
+            <input name="name"  value="<?php print $values['name']; ?> "  />
         </label><br />
         <label>
             email:<br />
-            <input name="email"  value=" " /> />
+            <input name="email"  value="<?php print $values['email']; ?> "  />
         </label><br />
         <select id="year" name="year"></select> <br />
         <script>for (let year = 1920; year <= 2022; year++) {
