@@ -35,7 +35,6 @@ if (isset($_POST["name"])|| isset($_POST["email"])||isset($_POST["year"])||isset
   $stmt = $db->prepare("UPDATE app SET name =:name, email=:email, year=:year, sex=:sex, limbs=:limbs,
   ability_immortality=:imm, ability_pass_thr_walls=:walls, ability_levitation=:lev, bio=:bio, checkbox=:checkbox WHERE login =:red");
 		  $stmt -> bindParam(':red', $red);
-$stmt -> bindParam(':login', $login);
   $stmt -> bindParam(':name', $name);
   $stmt -> bindParam(':email', $email);
   $stmt -> bindParam(':year', $year);
@@ -52,6 +51,9 @@ $stmt -> bindParam(':login', $login);
   $year = $_POST['year'];
   $sex = $_POST['radio-group-1'];
   $limbs = $_POST['radio-group-2'];
+$imm = $_POST["power"];
+$walls = $_POST["power"];
+$lev = $_POST["power"];
 	
 	
   $bio = $_POST['bio'];
