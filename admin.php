@@ -30,11 +30,7 @@ $db = new PDO('mysql:host=localhost;dbname=u47590', $user, $pass, array(PDO::ATT
 if (isset($_GET['del_id'])) { //проверяем, есть ли переменная
     //удаляем строку из таблицы
     $stmt = $db->prepare("delete from app where login = {$_GET['del_id']}");
-    if ($stmt) {
-      echo "<p>Товар удален.</p>";
-    } else {
-      echo '<p>Произошла ошибка: ' . '</p>';
-    }
+    $stmt->execute();
   }
 ?>
 <table border='1'>
