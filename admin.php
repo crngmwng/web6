@@ -19,8 +19,38 @@ if (empty($_SERVER['PHP_AUTH_USER']) ||
 }
 
 print('Вы успешно авторизовались и видите защищенные паролем данные.');
+?>
 
 // *********
 // Здесь нужно прочитать отправленные ранее пользователями данные и вывести в таблицу.
 // Реализовать просмотр и удаление всех данных.
+<!doctype html>
+<html lang="ru">
+<head>
+  <title>Админ-панель</title>
+</head>
+<body>
+<?php
+    $user = 'u47590';
+$pass = '3205407';
+$host = 'localhost';
+$db_name='u47590';
+$link = mysqli_connect($host, $user, $pass, $db_name);
+?>
+<table border='1'>
+  <tr>
+    <td>Идентификатор</td>
+    <td>Наименование</td>
+    <td>Цена</td>
+  </tr>
+  <?php
+    $sql = mysqli_query($link, 'SELECT `login`, `password`, `name` FROM `app`');
+    while ($result = mysqli_fetch_array($sql)) {
+      echo "<tr><td>{$result['login']}</td><td>{$result['password']}</td><td>{$result['name']} </td></tr>";
+    }
+  ?>
+</table>
+</body>
+</html>
+
 // *********
