@@ -51,19 +51,9 @@ if (isset($_GET['red_id'])) {
   print('Error : ' . $e->getMessage());
   exit();
     }
+    include('form.php');
   }
   ?>
-  <form action="" method="post">
-    <table>
-      <tr>
-        <td>Наименование:</td>
-        <td><input type="text" name="name" value="<?= isset($_GET['red_id']) ? $stmt['name'] : ''; ?>"></td>
-      </tr>
-      <tr>
-        <td colspan="2"><input type="submit" value="OK"></td>
-      </tr>
-    </table>
-  </form>
 <table border='1'>
     <tr>
     <td>Логин</td>
