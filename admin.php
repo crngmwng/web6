@@ -27,6 +27,15 @@ print('Вы успешно авторизовались и видите защи
   $user = 'u47590';
 $pass = '3205407';
 $db = new PDO('mysql:host=localhost;dbname=u47590', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
+if (isset($_GET['del_id'])) { //проверяем, есть ли переменная
+    //удаляем строку из таблицы
+    $stmt = $db->prepare("delete from app where login = {$_GET['del_id']}");
+    if ($stmt) {
+      echo "<p>Товар удален.</p>";
+    } else {
+      echo '<p>Произошла ошибка: ' . '</p>';
+    }
+  }
 ?>
 <table border='1'>
     <tr>
