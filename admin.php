@@ -29,8 +29,16 @@ $pass = '3205407';
 $db = new PDO('mysql:host=localhost;dbname=u47590', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 if (isset($_GET['del_id'])) { //проверяем, есть ли переменная
     //удаляем строку из таблицы
-    $stmt = $db->prepare("delete from app where login = {$_GET['del_id']}");
+    $del =$_GET['del_id'];
+    try {
+    $stmt = $db->prepare("delete from app where login = :del");
+    $stmt -> bindParam(':del', $del);
     $stmt->execute();
+    }
+    catch(PDOException $e){
+  print('Error : ' . $e->getMessage());
+  exit();
+}
   }
 ?>
 <table border='1'>
