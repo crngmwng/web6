@@ -28,7 +28,6 @@ print('Вы успешно авторизовались и видите защи
 $pass = '3205407';
 $db = new PDO('mysql:host=localhost;dbname=u47590', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 try {
- $login = $_SESSION['login'];
  $stmt = $db->prepare("SELECT `login`, `password`, `name` FROM `app`");
     $stmt->execute();
     foreach ($stmt as $row) {
