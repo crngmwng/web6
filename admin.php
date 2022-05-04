@@ -44,6 +44,7 @@ catch(PDOException $e){
   print('Error : ' . $e->getMessage());
   exit();
 }
+    ?>
    </table>
 
 /*$user = 'u47590';
