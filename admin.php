@@ -66,13 +66,22 @@ if (isset($_GET['red_id'])) {
   </form>
 <table border='1'>
     <tr>
-    <td>Идентификатор</td>
-    <td>Наименование</td>
-    <td>Цена</td>
+    <td>Логин</td>
+    <td>Пароль</td>
+    <td>Имя</td>
+        <td>Еmail</td>
+        <td>Год</td>
+        <td>Пол</td>
+        <td>Кол-во конечностей</td>
+        <td>Бессмертие</td>
+        <td>Прохождение сквозь стены</td>
+        <td>Левитация</td>
+        <td>Биография</td>
+        <td>Галочка</td>
   </tr>
     <?php
 try {
- $stmt = $db->prepare("SELECT login, password, name FROM app");
+ $stmt = $db->prepare("SELECT login, password, name, email, year, sex, limbs, ability_immortality, ability_pass_thr_walls, ability_levitation, bio, checkbox FROM app");
     $stmt->execute();
     
     foreach ($stmt as $row) {
@@ -80,6 +89,15 @@ try {
         "<td>{$row["login"]}</td>".
         "<td>{$row["password"]}</td>".
         "<td>{$row["name"]}</td>".
+         "<td>{$row["email"]}</td>".
+         "<td>{$row["year"]}</td>".
+         "<td>{$row["sex"]}</td>".
+         "<td>{$row["limbs"]}</td>".
+         "<td>{$row["ability_immortality"]}</td>".
+         "<td>{$row["ability_pass_thr_walls"]}</td>".
+         "<td>{$row["ability_levitation"]}</td>".
+         "<td>{$row["bio"]}</td>".
+         "<td>{$row["checkbox"]}</td>".
         "<td><a href='?del_id={$row['login']}'>Удалить</a></td>".
          "<td><a href='?red_id={$row['login']}'>Редактировать</a></td>".
          '</tr>';
