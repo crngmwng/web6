@@ -27,20 +27,22 @@ print('Вы успешно авторизовались и видите защи
   $user = 'u47590';
 $pass = '3205407';
 $db = new PDO('mysql:host=localhost;dbname=u47590', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
+<table border='1'>
 try {
  $stmt = $db->prepare("SELECT `login`, `password`, `name` FROM `app`");
     $stmt->execute();
-    <table border='1'>
+    
     foreach ($stmt as $row) {
       "<tr><td>{$row['login']}</td><td>{$row['password']}</td><td>{$row['name']} </td></tr>";
       }
-    </table>
+ 
 }
    
 catch(PDOException $e){
   print('Error : ' . $e->getMessage());
   exit();
 }
+   </table>
 
 /*$user = 'u47590';
 $pass = '3205407';
