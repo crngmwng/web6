@@ -38,9 +38,32 @@ if (isset($_GET['del_id'])) { //проверяем, есть ли перемен
     catch(PDOException $e){
   print('Error : ' . $e->getMessage());
   exit();
-}
+    }
   }
-?>
+if (isset($_GET['red_id'])) {
+       $red =$_GET['red_id'];
+    try {
+    $stmt = $db->prepare("select login, password, name from app where login = :red");
+    $stmt -> bindParam(':red', $red);
+    $stmt->execute();
+    }
+    catch(PDOException $e){
+  print('Error : ' . $e->getMessage());
+  exit();
+    }
+  }
+  ?>
+  <form action="" method="post">
+    <table>
+      <tr>
+        <td>Наименование:</td>
+        <td><input type="text" name="name" value="<?= isset($_GET['red_id']) ? $stmt['name'] : ''; ?>"></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="submit" value="OK"></td>
+      </tr>
+    </table>
+  </form>
 <table border='1'>
     <tr>
     <td>Идентификатор</td>
@@ -58,6 +81,7 @@ try {
         "<td>{$row["password"]}</td>".
         "<td>{$row["name"]}</td>".
         "<td><a href='?del_id={$row['login']}'>Удалить</a></td>".
+         "<td><a href='?red_id={$row['login']}'>Редактировать</a></td>".
          '</tr>';
       }
  
