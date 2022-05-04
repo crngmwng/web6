@@ -30,9 +30,11 @@ $db = new PDO('mysql:host=localhost;dbname=u47590', $user, $pass, array(PDO::ATT
 try {
  $stmt = $db->prepare("SELECT `login`, `password`, `name` FROM `app`");
     $stmt->execute();
+    <table border='1'>
     foreach ($stmt as $row) {
       "<tr><td>{$row['login']}</td><td>{$row['password']}</td><td>{$row['name']} </td></tr>";
       }
+    </table>
 }
    
 catch(PDOException $e){
