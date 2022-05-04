@@ -44,11 +44,17 @@ $values = array();
 if (isset($_GET['red_id'])) {
        $red =$_GET['red_id'];
     try {
-    $stmt = $db->prepare("select login, password, name from app where login = :red");
+    $stmt = $db->prepare("select login, name, email, year, sex, limbs, ability_immortality, ability_pass_thr_walls, ability_levitation, bio, checkbox from app where login = :red");
     $stmt -> bindParam(':red', $red);
     $stmt->execute();
         foreach ($stmt as $row) {
       $values['name']=$row["name"];
+      $values['email'] = $row["email"];
+      $values['bio'] = $row["bio"];
+	$values['year']=$row["year"];
+	$values['radio-group-1']=$row["sex"];
+	$values['radio-group-2']=$row["limbs"];
+	$values['check-1']=$row["checkbox"];
       }
         
     include('form.php');
