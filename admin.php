@@ -49,12 +49,6 @@ if (isset($_GET['red_id'])) {
     $stmt->execute();
         foreach ($stmt as $row) {
       $values['name']=$row["name"];
-      $values['email'] = $row["email"];
-      $values['bio'] = $row["bio"];
-	$values['year']=$row["year"];
-	$values['radio-group-1']=$row["sex"];
-	$values['radio-group-2']=$row["limbs"];
-	$values['check-1']=$row["checkbox"];
       }
         
     include('form.php');
