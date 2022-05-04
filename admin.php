@@ -47,7 +47,7 @@ catch(PDOException $e){
     ?>
    </table>
 
-/*$user = 'u47590';
+/**$user = 'u47590';
 $pass = '3205407';
 $host = 'localhost';
 $db_name='u47590';
@@ -67,5 +67,5 @@ $link = mysqli_connect($host, $user, $pass, $db_name);
   ?>
 </table>
 
-*/
+**/
 // *********
