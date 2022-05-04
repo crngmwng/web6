@@ -53,9 +53,6 @@ $stmt -> bindParam(':login', $login);
   $sex = $_POST['radio-group-1'];
   $limbs = $_POST['radio-group-2'];
 	
-   $imm = $_POST['power'];
-   $walls = $_POST['power'];
-   $lev = $_POST['power'];
 	
   $bio = $_POST['bio'];
 
