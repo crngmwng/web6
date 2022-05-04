@@ -40,7 +40,7 @@ try {
     $stmt->execute();
     
     foreach ($stmt as $row) {
-     strip_tags(sprintf( '<tr><td>$row["login"]</td><td>$row["password"]</td><td>$row["name"] </td></tr>'));
+     echo'<tr><td>'.$row["login"].'</td><td>'.$row["password"].'</td><td>'.$row["name"].' </td></tr>';
       }
  
 }
