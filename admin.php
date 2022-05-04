@@ -46,12 +46,13 @@ if (isset($_GET['red_id'])) {
     $stmt = $db->prepare("select login, password, name from app where login = :red");
     $stmt -> bindParam(':red', $red);
     $stmt->execute();
+        
+    include('form.php');
     }
     catch(PDOException $e){
   print('Error : ' . $e->getMessage());
   exit();
     }
-    include('form.php');
   }
   ?>
 <table border='1'>
