@@ -29,6 +29,11 @@ $pass = '3205407';
 $db = new PDO('mysql:host=localhost;dbname=u47590', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 ?>
 <table border='1'>
+    <tr>
+    <td>Идентификатор</td>
+    <td>Наименование</td>
+    <td>Цена</td>
+  </tr>
     <?php
 try {
  $stmt = $db->prepare("SELECT `login`, `password`, `name` FROM `app`");
