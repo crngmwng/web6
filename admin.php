@@ -36,11 +36,11 @@ $db = new PDO('mysql:host=localhost;dbname=u47590', $user, $pass, array(PDO::ATT
   </tr>
     <?php
 try {
- $stmt = $db->prepare("SELECT `login`, `password`, `name` FROM `app`");
+ $stmt = $db->prepare("SELECT login, password, name FROM app");
     $stmt->execute();
     
     foreach ($stmt as $row) {
-      "<tr><td>{$row['login']}</td><td>{$row['password']}</td><td>{$row['name']} </td></tr>";
+      "<tr><td>$row["login"]</td><td>$row["password"]</td><td>$row["name"] </td></tr>";
       }
  
 }
