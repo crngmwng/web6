@@ -27,7 +27,54 @@ print('Вы успешно авторизовались и видите защи
   $user = 'u47590';
 $pass = '3205407';
 $db = new PDO('mysql:host=localhost;dbname=u47590', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
-if (isset($_GET['del_id'])) { //проверяем, есть ли переменная
+if (isset($_POST["name"])|| isset($_POST["email"])||isset($_POST["year"])||isset($_POST["radio-group-1"])||isset($_POST["radio-group-2"])||isset($_POST["power"])||isset($_POST["bio"])||isset($_POST["check-1"])) {
+     
+      if (isset($_GET['red_id'])) {
+	       $red =$_GET['red_id'];
+         try {
+  $stmt = $db->prepare("UPDATE app SET name =:name, email=:email, year=:year, sex=:sex, limbs=:limbs,
+  ability_immortality=:imm, ability_pass_thr_walls=:walls, ability_levitation=:lev, bio=:bio, checkbox=:checkbox WHERE login =:red");
+		  $stmt -> bindParam(':red', $red);
+$stmt -> bindParam(':login', $login);
+  $stmt -> bindParam(':name', $name);
+  $stmt -> bindParam(':email', $email);
+  $stmt -> bindParam(':year', $year);
+  $stmt -> bindParam(':sex', $sex);
+  $stmt -> bindParam(':limbs', $limbs);
+  $stmt -> bindParam(':imm', $imm);
+  $stmt -> bindParam(':walls', $walls);
+  $stmt -> bindParam(':lev', $lev);
+  $stmt -> bindParam(':bio', $bio);
+  $stmt -> bindParam(':checkbox', $checkbox);
+
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $year = $_POST['year'];
+  $sex = $_POST['radio-group-1'];
+  $limbs = $_POST['radio-group-2'];
+	
+   $imm = $_POST['power'];
+   $walls = $_POST['power'];
+   $lev = $_POST['power'];
+	
+  $bio = $_POST['bio'];
+
+  if (empty($_POST['check-1']))
+    $checkbox = "No";
+  else
+    $checkbox = $_POST['check-1'];
+
+  
+  $stmt -> execute();
+}
+catch(PDOException $e){
+  print('Error : ' . $e->getMessage());
+  exit();
+}
+      } 
+    }
+
+if (isset($_GET['del_id'])) { 
     //удаляем строку из таблицы
     $del =$_GET['del_id'];
     try {
@@ -112,6 +159,5 @@ catch(PDOException $e){
 }
     ?>
    </table>
-
 
 // *********
