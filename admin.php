@@ -169,12 +169,12 @@ catch(PDOException $e){
    </table>
 <?php
 try{
-	$stmt = $db->prepare(" select count(*) from app where ability_immortality = 'levitation'
+	$stmt = $db->prepare(" select count(*) as pow from app where ability_levitation = 'levitation'
 union select count(*) from app where ability_immortality = 'immortality'
-union select count(*) as walls  from app where ability_immortality = 'pass_thr_walls';");
+union select count(*)  from app where ability_pass_thr_walls = 'pass_thr_walls'");
 	 $stmt -> execute();
 	foreach($stmt as $row){
-		echo $row[count(*)];
+		echo $row[pow];
 	}
 }
 catch(PDOException $e){
