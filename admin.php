@@ -167,6 +167,13 @@ catch(PDOException $e){
 }
     ?>
    </table>
+
+<table border='1'>
+    <tr>
+    <td>Левитация</td>
+    <td>Бессмертие</td>
+    <td>Прохождение сквозь стены</td>
+  </tr>
 <?php
 try{
 	$stmt = $db->prepare(" select count(*) as pow from app where ability_levitation = 'levitation'
@@ -174,7 +181,11 @@ union select count(*) from app where ability_immortality = 'immortality'
 union select count(*)  from app where ability_pass_thr_walls = 'pass_thr_walls'");
 	 $stmt -> execute();
 	foreach($stmt as $row){
-		echo $row['pow'];
+		
+		echo 
+			'<tr>'.
+        	"<td>{$row['pow']}</td>".
+			'</tr>';
 	}
 }
 catch(PDOException $e){
