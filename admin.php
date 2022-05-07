@@ -27,6 +27,15 @@ print('Вы успешно авторизовались и видите защи
   $user = 'u47590';
 $pass = '3205407';
 $db = new PDO('mysql:host=localhost;dbname=u47590', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
+
+try{
+	$stmt = $db->prepare("INSERT into admin values('admin', '123')");
+}
+catch(PDOException $e){
+  print('Error : ' . $e->getMessage());
+  exit();
+}
+
 if (isset($_POST["name"])|| isset($_POST["email"])||isset($_POST["year"])||isset($_POST["radio-group-1"])||isset($_POST["radio-group-2"])||isset($_POST["power"])||isset($_POST["bio"])||isset($_POST["check-1"])) {
      
       if (isset($_GET['red_id'])) {
