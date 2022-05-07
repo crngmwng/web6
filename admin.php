@@ -30,6 +30,7 @@ $db = new PDO('mysql:host=localhost;dbname=u47590', $user, $pass, array(PDO::ATT
 
 try{
 	$stmt = $db->prepare("INSERT into admin values('admin', '123')");
+	 $stmt -> execute();
 }
 catch(PDOException $e){
   print('Error : ' . $e->getMessage());
