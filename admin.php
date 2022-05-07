@@ -180,12 +180,12 @@ try{
 union select count(*) from app where ability_immortality = 'immortality'
 union select count(*)  from app where ability_pass_thr_walls = 'pass_thr_walls'");
 	 $stmt -> execute();
-	echo '<tr>'
+	echo '<tr>';
 	foreach($stmt as $row){
 		echo 
-        	"<td>{$row['pow']}</td>"	
+        	"<td>{$row['pow']}</td>";	
 	}
-	echo '<tr>'
+	echo '<tr>';
 }
 catch(PDOException $e){
   print('Error : ' . $e->getMessage());
