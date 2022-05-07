@@ -174,7 +174,7 @@ union select count(*) from app where ability_immortality = 'immortality'
 union select count(*) as walls  from app where ability_immortality = 'pass_thr_walls';");
 	 $stmt -> execute();
 	foreach($stmt as $row){
-		echo {$row[count(*)]};
+		echo $row[count(*)];
 	}
 }
 catch(PDOException $e){
